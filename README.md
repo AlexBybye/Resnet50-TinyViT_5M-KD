@@ -4,14 +4,14 @@
 
 # 项目概述
 
-本项目旨在将预训练的 **ResNet50** 作为教师模型，通过**知识蒸馏（Knowledge Distillation）**，将其“软知识”迁移到轻量级的 **TinyViT_5M** 学生模型。目标是在保持较高分类精度的同时，大幅减少参数量与计算开销。
+## 本项目旨在将预训练的 **ResNet50** 作为教师模型，通过**知识蒸馏（Knowledge Distillation）**，将其“软知识”迁移到轻量级的 **TinyViT_5M** 学生模型。目标是在保持较高分类精度的同时，大幅减少参数量与计算开销。
 
 - **教师模型**：ResNet50，50层深的残差网络，在图像分类任务中表现优异。
     
 - **学生模型**：TinyViT_5M，拥有仅5M参数的小型视觉Transformer，经过快速蒸馏框架预训练以增强泛化能力。
     
 
-> 📄 参考文献：[Knowledge Distillation](https://arxiv.org/abs/1503.02531)、[ResNet](https://arxiv.org/abs/1512.03385)、[TinyViT](https://arxiv.org/abs/2207.10666)
+> 参考文献：[Knowledge Distillation](https://arxiv.org/abs/1503.02531)、[ResNet](https://arxiv.org/abs/1512.03385)、[TinyViT](https://arxiv.org/abs/2207.10666)
 
 ---
 
@@ -42,7 +42,7 @@
 - 生成全训练集对应的 logits 并保存为 `teacher_logits.pt`。
     
 
-👉 [查看代码](https://github.com/AlexBybye/Resnet50-TinyViT_5M-KD/blob/master/teacher.py)
+ [查看代码](https://github.com/AlexBybye/Resnet50-TinyViT_5M-KD/blob/master/teacher.py)
 
 ---
 
@@ -73,7 +73,7 @@
     - batch_size=16，总训练20个epoch。
         
 
-👉 [查看代码](https://github.com/AlexBybye/Resnet50-TinyViT_5M-KD/blob/master/tremendous_trial.py)
+ [查看代码](https://github.com/AlexBybye/Resnet50-TinyViT_5M-KD/blob/master/tremendous_trial.py)
 
 ---
 
@@ -90,7 +90,7 @@
 - 分类逻辑参考 `classification.py`，使用 sklearn 分割数据集。
     
 
-👉 [查看数据组织](https://github.com/AlexBybye/Resnet50-TinyViT_5M-KD/tree/master/data)
+ [查看数据组织](https://github.com/AlexBybye/Resnet50-TinyViT_5M-KD/tree/master/data)
 
 ---
 
@@ -130,9 +130,9 @@
 - **最终效果**：在大幅压缩参数规模的前提下，保持了优良的分类性能。
 ## 准确度
 - 教师模型（teacher.py）:![{C8401259-0FF7-471A-A32E-E8D9911D77DC}](https://github.com/user-attachments/assets/a1760fa4-8dbb-4567-88c1-72eed52f1716)
-（85%-92%）
+## **（85%-92%）**
 - 蒸馏模型（基于86%logits）:![12e558d0c26cdb25eb439e4c3f87522](https://github.com/user-attachments/assets/63b41bad-1b91-4eb9-b253-97c82d655f9f)
-
+## **（79%-82%）**
 ---
 
 # 结论
@@ -179,5 +179,3 @@ pip install -r requirements.txt
     
 
 ---
-
-要不要我顺便也帮你出一版更「专业论文」风格（比如适合投稿或者写成README.md的那种）？要的话告诉我！🚀
